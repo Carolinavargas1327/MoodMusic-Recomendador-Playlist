@@ -99,7 +99,7 @@ p, label {
 /* Selectores */
 div[data-baseweb="select"] > div {
     background-color: #291936;
-    border-color: #a34b96;
+    border-color: #FF1493;
     color: white;
 }
 /* Entradas */
