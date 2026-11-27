@@ -83,7 +83,7 @@ p, label {
 /* Botones */
 .stButton > button,
 .stDownloadButton > button {
-    background: linear-gradient(90deg, #8238a8, #d35b9b);
+    background: linear-gradient(90deg, #8238a8, #FF1493);
     color: white;
     border: none;
     border-radius: 12px;
