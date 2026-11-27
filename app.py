@@ -98,7 +98,7 @@ p, label {
 }
 /* Selectores */
 div[data-baseweb="select"] > div {
-    background-color: #291936;
+    background-color: #a34b9630;
     border-color: #FF1493;
     color: white;
 }
