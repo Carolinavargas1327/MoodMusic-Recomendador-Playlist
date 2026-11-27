@@ -123,9 +123,12 @@ hr {
 # ==========================================
 # CARGAR DATASET
 # ==========================================
-@st.cache_data
+@st.cache_data(ttl=60)
 def cargar_datos():
-    return pd.read_csv("moodmusic_dataset.csv")
+    return pd.read_csv(
+        "moodmusic_dataset.csv",
+        encoding="utf-8-sig"
+    )
 try:
     df = cargar_datos()
 except FileNotFoundError:
@@ -195,11 +198,16 @@ with st.sidebar:
         ]
     )
     st.divider()
+    # ACTUALIZAR CATÁLOGO
+    if st.button("🔄 Actualizar catálogo", use_container_width=True):
+        st.cache_data.clear()
+        st.rerun()
+    st.divider()
     st.markdown("### Acerca de MoodMusic")
     st.write(
         "Un proyecto de Ciencia de Datos "
-        "que organiza canciones según "
-        "nuestro estado de anímo que escojamos"
+        "que organiza canciones según el "
+        "estado de ánimo que escojamos."
     )
     st.caption("Proyecto Final")
 # ==========================================
@@ -232,7 +240,7 @@ if pagina == "🏠 Inicio":
     )
     c1, c2, c3, c4 = st.columns(4)
     with c1:
-        tarjeta("🎵 Canciones", total)
+        tarjeta("🎵 Canciones registradas", total)
     with c2:
         tarjeta("💜 Estado predominante", estado_principal)
     with c3:
@@ -247,7 +255,7 @@ if pagina == "🏠 Inicio":
             df["estado_animo"]
             .value_counts()
             .rename_axis("Estado de ánimo")
-            .to_frame("Canciones")
+           .to_frame("Canciones")
         )
         st.bar_chart(animo, color="#c084fc")
     with derecha:
@@ -275,9 +283,7 @@ elif pagina == "💜 Playlists":
         "Selecciona cómo te sientes o qué tipo "
         "de música quieres explorar."
     )
-
     estados = sorted(df["estado_animo"].unique())
-
     if not estados:
         st.warning("No hay estados de ánimo disponibles.")
         st.stop()
@@ -330,7 +336,9 @@ elif pagina == "💜 Playlists":
 # ==========================================
 elif pagina == "🎵 Catálogo":
     st.markdown("## 🎼 Nuestro catálogo musical")
-    st.write(f"Actualmente hay {len(df)} canciones registradas.")
+    st.write(
+        f"Actualmente hay {len(df)} canciones registradas."
+    )
     busqueda = st.text_input(
         "🔎 Buscar en el catálogo",
         placeholder="Canción, artista o género..."
@@ -408,6 +416,7 @@ elif pagina == "📊 Estadísticas":
 # PIE DE PÁGINA
 # ==========================================
 st.divider()
+
 st.markdown("""
 <div style="
     text-align:center;
