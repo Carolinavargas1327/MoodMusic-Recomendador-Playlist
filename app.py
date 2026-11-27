@@ -3,32 +3,32 @@ import streamlit as st
 import pandas as pd
 import html
 
-# -----------------------------------------
-# CONFIGURACIÓN GENERAL
-# -----------------------------------------
+# ==========================================
+# CONFIGURACIÓN
+# ==========================================
 
 st.set_page_config(
-    page_title="MoodMusic | Tu música, tu estado de ánimo",
+    page_title="MoodMusic",
     page_icon="🎧",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# -----------------------------------------
-# DISEÑO CSS: NEGRO Y MORADO NEÓN
-# -----------------------------------------
+# ==========================================
+# ESTILOS: MORADO, ROSA Y NEGRO
+# ==========================================
 
 st.markdown("""
 <style>
 
 .stApp {
-    background: linear-gradient(135deg, #090611, #140b25, #090611);
+    background: linear-gradient(135deg, #100b18, #191025, #100b18);
     color: #ffffff;
 }
 
 [data-testid="stSidebar"] {
-    background: #10091d;
-    border-right: 1px solid #6525a8;
+    background: #171020;
+    border-right: 1px solid #75408f;
 }
 
 [data-testid="stSidebar"] * {
@@ -36,99 +36,127 @@ st.markdown("""
 }
 
 h1, h2, h3 {
-    color: #d8a7ff !important;
+    color: #f1c5ff !important;
 }
 
 p, label {
-    color: #e6dcf5;
+    color: #e8dced;
 }
 
-.neon-title {
-    font-size: 48px;
+/* Encabezado */
+
+.hero {
+    background: linear-gradient(110deg, #54217d, #9b3d85, #d45b91);
+    padding: 35px 25px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 25px #a33b9b44;
+}
+
+.hero h1 {
+    color: white !important;
+    font-size: 43px;
     font-weight: 900;
-    text-align: center;
-    color: #d9a5ff;
-    text-shadow: 0 0 10px #a855f7,
-                 0 0 25px #9333ea;
-    margin-bottom: 5px;
+    margin: 0;
 }
 
-.subtitle {
-    text-align: center;
-    color: #c8b4df;
+.hero p {
+    color: #fff0fa;
     font-size: 17px;
-    margin-bottom: 30px;
+    margin-bottom: 0;
 }
+
+/* Tarjetas */
 
 .metric-card {
-    background: linear-gradient(145deg, #211333, #120b20);
-    border: 1px solid #923bdb;
-    border-radius: 16px;
-    padding: 22px;
-    text-align: center;
-    box-shadow: 0 0 12px #6925a555;
+    background: linear-gradient(145deg, #291936, #1a1125);
+    border: 1px solid #8c4c9d;
+    border-radius: 17px;
+    padding: 22px 15px;
     min-height: 125px;
+    box-shadow: 0 4px 18px #a34b9630;
 }
 
 .metric-label {
-    color: #c9a7e9;
+    color: #e8b9ed;
     font-size: 14px;
 }
 
 .metric-value {
     color: #ffffff;
-    font-size: 25px;
-    font-weight: bold;
-    margin-top: 10px;
+    font-size: 24px;
+    font-weight: 800;
+    margin-top: 12px;
     overflow-wrap: anywhere;
 }
 
-.section-card {
-    background: #170e25;
-    border: 1px solid #632a91;
-    border-radius: 14px;
-    padding: 18px;
+/* Secciones */
+
+.section-box {
+    background: #21152d;
+    border: 1px solid #704080;
+    border-radius: 15px;
+    padding: 20px;
     margin-bottom: 15px;
 }
 
+/* Botones */
+
 .stButton > button,
 .stDownloadButton > button {
-    background: linear-gradient(90deg, #7027b9, #a855f7);
+    background: linear-gradient(90deg, #8238a8, #d35b9b);
     color: white;
-    border: 1px solid #c084fc;
-    border-radius: 10px;
+    border: none;
+    border-radius: 12px;
     font-weight: bold;
+    transition: 0.2s;
 }
 
 .stButton > button:hover,
 .stDownloadButton > button:hover {
-    border: 1px solid white;
-    box-shadow: 0 0 14px #a855f7;
+    box-shadow: 0 0 15px #d35b9b99;
     color: white;
+    border: 1px solid #f4b5dc;
 }
+
+/* Selectores */
 
 div[data-baseweb="select"] > div {
-    background-color: #211333;
-    border-color: #923bdb;
+    background-color: #291936;
+    border-color: #a34b96;
     color: white;
 }
 
-[data-testid="stDataFrame"] {
-    border: 1px solid #632a91;
+/* Entradas */
+
+.stTextInput input {
+    background-color: #25182e;
+    color: white;
+    border: 1px solid #965b9d;
     border-radius: 10px;
 }
 
+/* Tablas */
+
+[data-testid="stDataFrame"] {
+    border: 1px solid #75408f;
+    border-radius: 12px;
+}
+
+/* Separadores */
+
 hr {
-    border-color: #632a91;
+    border-color: #75408f;
 }
 
 </style>
 """, unsafe_allow_html=True)
 
 
-# -----------------------------------------
-# CARGAR ARCHIVO CSV
-# -----------------------------------------
+# ==========================================
+# CARGAR DATASET
+# ==========================================
 
 @st.cache_data
 def cargar_datos():
@@ -141,20 +169,20 @@ try:
 except FileNotFoundError:
     st.error(
         "No se encontró moodmusic_dataset.csv. "
-        "Verifica que esté en la raíz del repositorio."
+        "Comprueba que esté en la raíz del repositorio."
     )
     st.stop()
 
 except Exception as e:
-    st.error(f"No se pudo cargar el archivo: {e}")
+    st.error(f"Error al cargar el archivo: {e}")
     st.stop()
 
 
-# -----------------------------------------
-# VALIDAR COLUMNAS
-# -----------------------------------------
+# ==========================================
+# VALIDAR INFORMACIÓN
+# ==========================================
 
-columnas_necesarias = [
+columnas = [
     "id",
     "cancion",
     "artista",
@@ -166,99 +194,98 @@ columnas_necesarias = [
     "observaciones"
 ]
 
-faltantes = [
-    columna for columna in columnas_necesarias
-    if columna not in df.columns
-]
+faltantes = [c for c in columnas if c not in df.columns]
 
 if faltantes:
-    st.error(f"Faltan columnas en el CSV: {faltantes}")
+    st.error(f"Faltan estas columnas: {faltantes}")
     st.stop()
 
-df = df.copy()
-
-# Eliminar filas sin datos esenciales
 df = df.dropna(
     subset=["cancion", "artista", "estado_animo"]
-)
+).copy()
 
 df["estado_animo"] = df["estado_animo"].astype(str)
 df["genero"] = df["genero"].fillna("Por identificar")
 
 
-# -----------------------------------------
-# FUNCIONES AUXILIARES
-# -----------------------------------------
+# ==========================================
+# FUNCIONES
+# ==========================================
 
 def tarjeta(titulo, valor):
-    titulo_seguro = html.escape(str(titulo))
-    valor_seguro = html.escape(str(valor))
+    titulo = html.escape(str(titulo))
+    valor = html.escape(str(valor))
 
     st.markdown(f"""
     <div class="metric-card">
-        <div class="metric-label">{titulo_seguro}</div>
-        <div class="metric-value">{valor_seguro}</div>
+        <div class="metric-label">{titulo}</div>
+        <div class="metric-value">{valor}</div>
     </div>
     """, unsafe_allow_html=True)
 
 
-# -----------------------------------------
+iconos = {
+    "Alegría": "😊",
+    "Energía": "⚡",
+    "Melancolía": "🌙",
+    "Tranquilidad": "🌸"
+}
+
+
+# ==========================================
 # MENÚ LATERAL
-# -----------------------------------------
+# ==========================================
 
 with st.sidebar:
 
-    st.markdown("## 🎧 MoodMusic")
+    st.markdown("# 🎧 MoodMusic")
 
-    st.caption("Tu música, tu estado de ánimo")
+    st.caption("Tu música, tu momento")
 
     st.divider()
 
     pagina = st.radio(
-        "MENÚ PRINCIPAL",
+        "EXPLORAR",
         [
             "🏠 Inicio",
-            "🎵 Playlists",
-            "📚 Catálogo"
+            "💜 Playlists",
+            "🎵 Catálogo",
+            "📊 Estadísticas"
         ]
     )
 
     st.divider()
 
-    st.markdown("### 💜 Sobre el proyecto")
+    st.markdown("### Acerca de MoodMusic")
 
     st.write(
-        "MoodMusic organiza canciones según "
-        "el estado de ánimo seleccionado por el usuario."
+        "Un proyecto de Ciencia de Datos "
+        "que organiza canciones según "
+        "el estado de ánimo seleccionado."
     )
 
-    st.caption("Proyecto de Ciencia de Datos")
+    st.caption("Proyecto académico")
 
 
-# -----------------------------------------
-# ENCABEZADO
-# -----------------------------------------
+# ==========================================
+# ENCABEZADO GENERAL
+# ==========================================
 
-st.markdown(
-    '<div class="neon-title">MOODMUSIC</div>',
-    unsafe_allow_html=True
-)
-
-st.markdown(
-    '<div class="subtitle">'
-    'Encuentra la música que conecta con tu momento'
-    '</div>',
-    unsafe_allow_html=True
-)
+st.markdown("""
+<div class="hero">
+    <h1>🎧 MOODMUSIC</h1>
+    <p>Descubre canciones que conectan con tu momento</p>
+</div>
+""", unsafe_allow_html=True)
 
 
-# -----------------------------------------
-# PÁGINA DE INICIO
-# -----------------------------------------
+# ==========================================
+# INICIO
+# ==========================================
 
 if pagina == "🏠 Inicio":
 
-    st.markdown("## ✨ Tu espacio musical")
+    st.markdown("## ✨ Bienvenido a tu espacio musical")
 
     total = len(df)
 
@@ -278,49 +305,42 @@ if pagina == "🏠 Inicio":
         (df["estado_animo"] == "Melancolía").mean() * 100
     )
 
-    # Tarjetas de indicadores
+    c1, c2, c3, c4 = st.columns(4)
 
-    col1, col2, col3, col4 = st.columns(4)
+    with c1:
+        tarjeta("🎵 Canciones", total)
 
-    with col1:
-        tarjeta("🎵 Total de canciones", total)
-
-    with col2:
+    with c2:
         tarjeta("💜 Estado predominante", estado_principal)
 
-    with col3:
-        tarjeta("🎼 Género más frecuente", genero_principal)
+    with c3:
+        tarjeta("🎼 Género principal", genero_principal)
 
-    with col4:
-        tarjeta("% de Melancolía", f"{porcentaje_melancolia:.1f}%")
+    with c4:
+        tarjeta("% Melancolía", f"{porcentaje_melancolia:.1f}%")
 
     st.divider()
-
-    # Gráficas
 
     izquierda, derecha = st.columns(2)
 
     with izquierda:
 
-        st.markdown("### 💜 Canciones por estado de ánimo")
+        st.markdown("### 💜 Estados de ánimo")
 
-        conteo_animo = (
+        animo = (
             df["estado_animo"]
             .value_counts()
             .rename_axis("Estado de ánimo")
             .to_frame("Canciones")
         )
 
-        st.bar_chart(
-            conteo_animo,
-            color="#a855f7"
-        )
+        st.bar_chart(animo, color="#c084fc")
 
     with derecha:
 
         st.markdown("### 🎼 Géneros musicales")
 
-        conteo_generos = (
+        generos = (
             df["genero"]
             .value_counts()
             .head(10)
@@ -328,50 +348,41 @@ if pagina == "🏠 Inicio":
             .to_frame("Canciones")
         )
 
-        st.bar_chart(
-            conteo_generos,
-            color="#c084fc"
-        )
+        st.bar_chart(generos, color="#e879b9")
 
     st.divider()
 
-    st.markdown("### 🎧 Explora MoodMusic")
+    st.markdown("### 🌷 Explora tu música")
 
     st.write(
-        "Entra a Playlists para encontrar canciones "
-        "según el estado de ánimo que quieras explorar."
-    )
-
-    st.info(
-        "Selecciona una categoría en el menú lateral "
-        "para comenzar."
+        "Entra a Playlists y selecciona el estado "
+        "de ánimo que deseas explorar."
     )
 
 
-# -----------------------------------------
-# PÁGINA DE PLAYLISTS
-# -----------------------------------------
+# ==========================================
+# PLAYLISTS
+# ==========================================
 
-elif pagina == "🎵 Playlists":
+elif pagina == "💜 Playlists":
 
     st.markdown("## 🎧 Encuentra tu playlist")
 
     st.write(
-        "Selecciona un estado de ánimo y descubre "
-        "las canciones disponibles en el catálogo."
+        "Selecciona cómo te sientes o qué tipo "
+        "de música quieres explorar."
     )
 
-    estados = sorted(
-        df["estado_animo"].dropna().unique().tolist()
-    )
+    estados = sorted(df["estado_animo"].unique())
 
     if not estados:
         st.warning("No hay estados de ánimo disponibles.")
         st.stop()
 
     seleccion = st.selectbox(
-        "💜 ¿Qué estado de ánimo deseas explorar?",
-        estados
+        "¿Qué estado de ánimo deseas explorar?",
+        estados,
+        format_func=lambda x: f"{iconos.get(x, '🎵')} {x}"
     )
 
     canciones = df[
@@ -379,102 +390,85 @@ elif pagina == "🎵 Playlists":
     ].copy()
 
     st.markdown(
-        f"### ✨ Playlist: {seleccion}"
+        f"### {iconos.get(seleccion, '🎵')} Playlist: {seleccion}"
     )
 
     st.success(
-        f"Encontramos {len(canciones)} canciones para esta categoría."
+        f"Hay {len(canciones)} canciones en esta categoría."
     )
-
-    # Buscador
 
     busqueda = st.text_input(
         "🔎 Buscar canción o artista",
-        placeholder="Escribe el nombre de una canción o artista..."
+        placeholder="Escribe aquí..."
     )
 
-    canciones_mostrar = canciones.copy()
+    resultado = canciones.copy()
 
     if busqueda:
-        coincidencias = (
-            canciones_mostrar["cancion"].astype(str).str.contains(
+        filtro = (
+            resultado["cancion"].astype(str).str.contains(
                 busqueda, case=False, na=False
             )
             |
-            canciones_mostrar["artista"].astype(str).str.contains(
+            resultado["artista"].astype(str).str.contains(
                 busqueda, case=False, na=False
             )
         )
 
-        canciones_mostrar = canciones_mostrar[
-            coincidencias
-        ]
+        resultado = resultado[filtro]
 
     st.dataframe(
-        canciones_mostrar[
-            ["cancion", "artista", "genero"]
-        ],
+        resultado[["cancion", "artista", "genero"]],
         use_container_width=True,
         hide_index=True
     )
 
-    # Descargar playlist
-
-    archivo_playlist = canciones_mostrar.to_csv(
+    archivo = resultado.to_csv(
         index=False
     ).encode("utf-8-sig")
 
     st.download_button(
-        label="⬇️ Descargar esta playlist",
-        data=archivo_playlist,
+        "⬇️ Descargar playlist",
+        data=archivo,
         file_name=f"playlist_{seleccion}.csv",
         mime="text/csv"
     )
 
 
-# -----------------------------------------
-# PÁGINA DE CATÁLOGO
-# -----------------------------------------
+# ==========================================
+# CATÁLOGO
+# ==========================================
 
-elif pagina == "📚 Catálogo":
+elif pagina == "🎵 Catálogo":
 
-    st.markdown("## 📚 Catálogo musical")
+    st.markdown("## 🎼 Nuestro catálogo musical")
 
-    st.write(
-        "Consulta las canciones que forman parte "
-        "de la base de datos de MoodMusic."
-    )
+    st.write(f"Actualmente hay {len(df)} canciones registradas.")
 
-    st.markdown(
-        f"### 🎵 {len(df)} canciones registradas"
-    )
-
-    # Búsqueda general
-
-    busqueda_catalogo = st.text_input(
-        "🔎 Buscar en todo el catálogo",
+    busqueda = st.text_input(
+        "🔎 Buscar en el catálogo",
         placeholder="Canción, artista o género..."
     )
 
     catalogo = df.copy()
 
-    if busqueda_catalogo:
+    if busqueda:
 
-        coincidencias = (
+        filtro = (
             catalogo["cancion"].astype(str).str.contains(
-                busqueda_catalogo, case=False, na=False
+                busqueda, case=False, na=False
             )
             |
             catalogo["artista"].astype(str).str.contains(
-                busqueda_catalogo, case=False, na=False
+                busqueda, case=False, na=False
             )
             |
             catalogo["genero"].astype(str).str.contains(
-                busqueda_catalogo, case=False, na=False
+                busqueda, case=False, na=False
             )
         )
 
-        catalogo = catalogo[coincidencias]
+        catalogo = catalogo[filtro]
 
     st.dataframe(
         catalogo[
@@ -490,33 +484,78 @@ elif pagina == "📚 Catálogo":
         hide_index=True
     )
 
-    # Descargar catálogo completo
-
-    archivo_catalogo = df.to_csv(
+    archivo = df.to_csv(
         index=False
     ).encode("utf-8-sig")
 
     st.download_button(
-        label="⬇️ Descargar catálogo completo",
-        data=archivo_catalogo,
+        "⬇️ Descargar catálogo completo",
+        data=archivo,
         file_name="moodmusic_catalogo.csv",
         mime="text/csv"
     )
 
 
-# -----------------------------------------
+# ==========================================
+# ESTADÍSTICAS
+# ==========================================
+
+elif pagina == "📊 Estadísticas":
+
+    st.markdown("## 📊 Análisis musical")
+
+    st.markdown("### Distribución por estado de ánimo")
+
+    conteo = df["estado_animo"].value_counts()
+
+    st.bar_chart(
+        conteo,
+        color="#d879b5"
+    )
+
+    st.markdown("### Distribución por género")
+
+    generos = df["genero"].value_counts()
+
+    st.bar_chart(
+        generos,
+        color="#a78bfa"
+    )
+
+    st.markdown("### Resumen de canciones por estado")
+
+    resumen = (
+        df.groupby("estado_animo")
+        .agg(
+            Total_canciones=("id", "count"),
+            Generos_diferentes=("genero", "nunique")
+        )
+        .reset_index()
+    )
+
+    st.dataframe(
+        resumen,
+        use_container_width=True,
+        hide_index=True
+    )
+
+
+# ==========================================
 # PIE DE PÁGINA
-# -----------------------------------------
+# ==========================================
 
 st.divider()
 
-st.markdown(
-    """
-    <div style="text-align:center; color:#b99bd8;">
-        🎧 MOODMUSIC | Recomendador de Playlist
-        <br>
-        Proyecto de Ciencia de Datos
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+st.markdown("""
+<div style="
+    text-align:center;
+    color:#e8b9ed;
+    padding:15px;
+">
+    🎧 <b>MOODMUSIC</b>
+    <br>
+    Tu música, tu momento 💜
+    <br>
+    <small>Proyecto de Ciencia de Datos</small>
+</div>
+""", unsafe_allow_html=True)
