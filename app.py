@@ -198,11 +198,6 @@ with st.sidebar:
         ]
     )
     st.divider()
-    # ACTUALIZAR CATÁLOGO
-    if st.button("🔄 Actualizar catálogo", use_container_width=True):
-        st.cache_data.clear()
-        st.rerun()
-    st.divider()
     st.markdown("### Acerca de MoodMusic")
     st.write(
         "Un proyecto de Ciencia de Datos "
