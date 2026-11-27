@@ -59,7 +59,7 @@ p, label {
     border-radius: 17px;
     padding: 22px 15px;
     min-height: 125px;
-    box-shadow: 0 4px 18px #a34b9630;
+    box-shadow: 0 4px 18px #808080;
 }
 .metric-label {
     color: #e8b9ed;
