@@ -1,0 +1,81 @@
+﻿id,cancion,artista,genero,estado_animo,energia_0_1,valence_0_1,tempo_bpm,observaciones
+1,Part-Time Lover,Stevie Wonder,Funk / R&B,Alegría,,,,Clasificación inicial por su ritmo bailable y tono positivo; validar con el equipo.
+2,El Merengue,Manuel Turizo,Urbano / Merengue,Energía,,,,Clasificación inicial por su ritmo bailable; validar con el equipo.
+3,Rabiosa,Shakira,Pop / Urbano,Energía,,,,Clasificación inicial por su ritmo intenso y bailable; validar con el equipo.
+4,El Doble,Abraham Mateo; Danna,Pop,Alegría,,,,Clasificación inicial; validar con el equipo.
+5,22,TINI,Pop,Alegría,,,,Clasificación inicial por su tono juvenil y animado; validar con el equipo.
+6,Universidad,TINI,Pop,Alegría,,,,Clasificación inicial; validar con el equipo.
+7,On the Floor,Jennifer Lopez; Pitbull,Dance-pop,Energía,,,,Clasificación inicial por su orientación bailable; validar con el equipo.
+8,#Natural,Paty Cantú; Juhn,Pop / Urbano,Tranquilidad,,,,Clasificación provisional; confirmar si el equipo la percibe como tranquila o romántica.
+9,Superestrella,Aitana,Pop,Alegría,,,,Clasificación inicial; validar con el equipo.
+10,No Volverás,Diego Verdaguer,Balada romántica,Melancolía,,,,Clasificación inicial por su temática de ruptura/nostalgia; validar con el equipo.
+11,El-Banda,Jenni Rivera,Regional mexicano / Banda,Energía,,,,Título escrito tal como fue proporcionado; confirmar título exacto y clasificación.
+12,Sin Evidencia,Banda MS de Sergio Lizárraga,Regional mexicano / Banda,Melancolía,,,,Clasificación inicial por su temática sentimental; validar con el equipo.
+13,Passion Whine,Farruko; Sean Paul,Dancehall / Urbano,Energía,,,,Clasificación inicial por su ritmo bailable; validar con el equipo.
+14,Tus Pecas,bbyale,Por identificar,Alegría,,,,Clasificación provisional; confirmar género y estado de ánimo con el equipo.
+15,Fanática,bbyale,Por identificar,Energía,,,,Clasificación provisional; confirmar género y estado de ánimo con el equipo.
+16,Bbylandia,bbyale,Por identificar,Alegría,,,,Clasificación provisional; confirmar género y estado de ánimo con el equipo.
+17,Salidos del Anexo,bbyset,Por identificar,Energía,,,,Se interpretó “salidos del anexo-bbyset” como título y artista; confirmar escritura.
+18,El Triste,José José,Balada romántica,Melancolía,,,,Clasificación inicial por su interpretación y temática; validar con el equipo.
+19,Hasta Que Te Conocí,Juan Gabriel,Balada / Pop latino,Melancolía,,,,Clasificación inicial por su temática sentimental; validar con el equipo.
+20,Amor Eterno,Rocío Dúrcal,Balada ranchera,Melancolía,,,,Clasificación inicial por su temática nostálgica; validar con el equipo.
+21,La Incondicional,Luis Miguel,Pop latino / Balada,Melancolía,,,,Clasificación inicial por su temática romántica; validar con el equipo.
+22,Me Dediqué a Perderte,Alejandro Fernández,Balada / Regional mexicano,Melancolía,,,,Clasificación inicial por su temática de pérdida; validar con el equipo.
+23,Antología,Shakira,Pop latino,Melancolía,,,,Clasificación inicial por su tono nostálgico; validar con el equipo.
+24,El Problema,Ricardo Arjona,Pop latino / Balada,Melancolía,,,,Clasificación inicial por su temática sentimental; validar con el equipo.
+25,Rosas,La Oreja de Van Gogh,Pop,Melancolía,,,,Clasificación inicial por su tono nostálgico; validar con el equipo.
+26,Rayando el Sol,Maná,Rock en español,Melancolía,,,,Clasificación inicial por su temática de añoranza; validar con el equipo.
+27,Todo Cambió,Camila,Pop romántico,Alegría,,,,Clasificación inicial por su temática amorosa; validar con el equipo.
+28,Someone Like You,Adele,Pop / Soul,Melancolía,,,,Clasificación inicial por su temática de ruptura; validar con el equipo.
+29,Hello,Adele,Pop / Soul,Melancolía,,,,Clasificación inicial por su tono nostálgico; validar con el equipo.
+30,Photograph,Ed Sheeran,Pop acústico,Tranquilidad,,,,Clasificación inicial por su arreglo suave y nostálgico; validar con el equipo.
+31,Stay With Me,Sam Smith,Pop / Soul,Melancolía,,,,Clasificación inicial por su temática sentimental; validar con el equipo.
+32,I Will Always Love You,Whitney Houston,Pop / Soul,Melancolía,,,,Clasificación inicial por su interpretación intensa y temática de despedida; validar con el equipo.
+33,My Heart Will Go On,Celine Dion,Pop / Balada,Melancolía,,,,Clasificación inicial por su tono emotivo; validar con el equipo.
+34,Fix You,Coldplay,Rock alternativo,Tranquilidad,,,,Clasificación inicial por su inicio suave y tono reconfortante; validar con el equipo.
+35,Someone You Loved,Lewis Capaldi,Pop / Balada,Melancolía,,,,Clasificación inicial por su temática de pérdida; validar con el equipo.
+36,Your Song,Elton John,Pop / Balada,Tranquilidad,,,,Clasificación inicial por su arreglo suave y romántico; validar con el equipo.
+37,"Volver, Volver",Vicente Fernández,Ranchera,Melancolía,,,,Clasificación inicial por su temática de añoranza; validar con el equipo.
+38,Mi Vida Eres Tú,Los Temerarios,Grupero / Balada,Tranquilidad,,,,Clasificación inicial por su tono romántico; validar con el equipo.
+39,Que No Quede Huella,Bronco,Grupero,Alegría,,,,Clasificación inicial por su ritmo bailable; validar con el equipo.
+40,El Color de Tus Ojos,Banda MS,Regional mexicano / Banda,Tranquilidad,,,,Clasificación inicial por su tono romántico; validar con el equipo.
+41,¿Todavía te acuerdas?,Bbyale,Urbano latino,Melancolía,,,,Clasificación preliminar manual; validar con el equipo.
+42,PalabraXPalabra,Bbyale,Urbano latino,Melancolía,,,,Clasificación preliminar manual; validar con el equipo.
+43,Vueltas Cortitas,Bbyale,Urbano latino,Alegría,,,,Clasificación preliminar manual; validar con el equipo.
+44,Bendito baile,Bbyale,Urbano latino,Energía,,,,Clasificación preliminar manual; validar con el equipo.
+45,Bby WOW,Karol G,Pop urbano,Energía,,,,Clasificación preliminar manual; validar con el equipo.
+46,For u My lova,Karol G,Pop urbano,Alegría,,,,Clasificación preliminar manual; validar con el equipo.
+47,Olimpo,"Neton Vega, Fuerza Regida",Regional mexicano / Corridos tumbados,Energía,,,,Clasificación preliminar manual; validar con el equipo.
+48,Es un Secreto,Plan B,Reguetón,Energía,,,,Clasificación preliminar manual; validar con el equipo.
+49,QUE PRETENDEES,"J Balvin, Bad Bunny",Reguetón,Energía,,,,Clasificación preliminar manual; validar con el equipo.
+50,SI SE DA - Remix,Myke Towers,Reguetón,Energía,,,,Clasificación preliminar manual; validar con el equipo.
+51,6 AM,J Balvin,Reguetón / Pop latino,Alegría,,,,Clasificación preliminar manual; validar con el equipo.
+52,Con quien anduviera?,Karol G,Pop urbano,Melancolía,,,,Clasificación preliminar manual; validar con el equipo.
+53,My Lova,"Katteyes, El Bogueto",Reguetón / Urbano latino,Alegría,,,,Clasificación preliminar manual; validar con el equipo.
+54,POLLYPOCKET,"Martinwhite, Katteyes",Urbano latino,Energía,,,,Clasificación preliminar manual; validar con el equipo.
+55,AL GOLPITO,Quevedo,Urbano latino,Energía,,,,Clasificación preliminar manual; validar con el equipo.
+56,X (feat. Maluma y Ozuna),"Nicky Jam, J Balvin, Maluma",Reguetón,Energía,,,,Clasificación preliminar manual; validar con el equipo.
+57,"J Balvin: BZrp Music Session, Vol. 62/66","Bizarrap, JBalvin",Urbano latino,Energía,,,,Clasificación preliminar manual; validar con el equipo.
+58,10:10,"Xavi Jordan, Katteyes",Urbano latino,Alegría,,,,Clasificación preliminar manual; validar con el equipo.
+59,Consejo de Amor (feat. Morat),"TINI, Morat",Pop latino,Melancolía,,,,Clasificación preliminar manual; validar con el equipo.
+60,tqum,"Sofía Reyes, DANNA",Pop latino / Urbano,Alegría,,,,Clasificación preliminar manual; validar con el equipo.
+61,Innerbloom - Radio Edit,RÜFÜS DU SOL,Electrónica / House,Tranquilidad,,,,Clasificación preliminar manual; validar con el equipo.
+62,Hipnotízame,Fobia,Rock en español,Alegría,,,,Clasificación preliminar manual; validar con el equipo.
+63,Vivo,Fobia,Rock en español,Tranquilidad,,,,Clasificación preliminar manual; validar con el equipo.
+64,Dancing With A Stranger (with Normani),"Sam Smith, Normani",Pop / R&B,Melancolía,,,,Clasificación preliminar manual; validar con el equipo.
+65,Without Me,Halsey,Pop,Tranquilidad,,,,Clasificación preliminar manual; validar con el equipo.
+66,Me hace daño verte,Fresto Music,Música tropical,Melancolía,,,,Clasificación preliminar manual; validar con el equipo.
+67,Tu Boda,"Oscar Maydon, Fuerza Regida",Regional mexicano,Melancolía,,,,Clasificación preliminar manual; validar con el equipo.
+68,El teléfono,"Héctor ""El Father"", Wisin y Yandel",Reguetón,Energía,,,,Clasificación preliminar manual; validar con el equipo.
+69,Nothing Breaks Like a Heart (feat. Miley Cyrus),"Mark Ronson, Miley Cyrus",Pop / Country,Melancolía,,,,Clasificación preliminar manual; validar con el equipo.
+70,Bemaste,Tiago PZK,Urbano latino,Alegría,,,,Clasificación preliminar manual; validar con el equipo.
+71,Hayami Hana,Rauw Alejandro,Urbano latino,Melancolía,,,,Clasificación preliminar manual; validar con el equipo.
+72,She Don't Give a Fo,"Duki, KHEA",Trap latino,Energía,,,,Clasificación preliminar manual; validar con el equipo.
+73,LA PLAYA,"Benja Valencia, Katteyes, SINAKA, Swift 047",Urbano latino,Alegría,,,,Clasificación preliminar manual; validar con el equipo.
+74,Tiroteo - Remix,"Marc Seguí, Rauw Alejandro, Pol Granch",Pop urbano,Alegría,,,,Clasificación preliminar manual; validar con el equipo.
+75,Exodus,Bob Marley y The Wailers,Reggae,Tranquilidad,,,,Clasificación preliminar manual; validar con el equipo.
+76,Stir It Up,Bob Marley y The Wailers,Reggae,Tranquilidad,,,,Clasificación preliminar manual; validar con el equipo.
+77,"Get Up, Stand Up",Bob Marley y The Wailers,Reggae,Tranquilidad,,,,Clasificación preliminar manual; validar con el equipo.
+78,"No Woman, No Cry",Bob Marley y The Wailers,Reggae,Tranquilidad,,,,Clasificación preliminar manual; validar con el equipo.
+79,Could You Be Loved,Bob Marley y The Wailers,Reggae,Tranquilidad,,,,Clasificación preliminar manual; validar con el equipo.
+80,Natural Mystic,Bob Marley y The Wailers,Reggae,Tranquilidad,,,,Clasificación preliminar manual; validar con el equipo.
